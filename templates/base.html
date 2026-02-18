@@ -113,13 +113,15 @@
 
       <main class="content">
         {% include "partials/_topbar.html" %}
-        <!-- <div class="page">
-          {% include "partials/_messages.html" %} {% block content %}{% endblock
-          %}
-        </div> -->
+        
+          {% include "partials/_messages.html" %} {% block content %}{% endblock %}
+  
       </main>
     </div>
-    {% else %} {% block public_content %}{% endblock %} {% endif %}
+    {% else %} 
+    {% block public_content %} 
+    {% endblock %} 
+    {% endif %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
