@@ -7,7 +7,7 @@ env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env(BASE_DIR / ".env")
 
 SECRET_KEY = env("SECRET_KEY")
-DEBUG =env("DEBUG")
+DEBUG = env("DEBUG")
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["127.0.0.1", "localhost"])
 
 INSTALLED_APPS = [
@@ -17,11 +17,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     "crispy_forms",
     "crispy_bootstrap5",
-
     "apps.accounts",
+    "apps.patients",
+    "apps.wards",
 ]
 
 MIDDLEWARE = [
@@ -54,13 +54,15 @@ TEMPLATES = [
 WSGI_APPLICATION = "hms_project.wsgi.application"
 ASGI_APPLICATION = "hms_project.asgi.application"
 
-DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}}
+DATABASES = {
+    "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}
+}
 
 AUTH_PASSWORD_VALIDATORS = [
-    {"NAME":
-     "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
-    {"NAME":
-     "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+    },
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
 ]
 
 LANGUAGE_CODE = "en-us"

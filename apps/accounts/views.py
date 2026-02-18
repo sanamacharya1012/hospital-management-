@@ -3,8 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from .models import User
 
+
 class HMSLoginView(LoginView):
     template_name = "auth/login.html"
+
 
 @login_required
 def dashboard(request):

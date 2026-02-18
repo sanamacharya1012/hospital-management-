@@ -1,0 +1,12 @@
+<div class="topbar">
+    <div class="d-flex align-item-center justify-content-between">
+        <div>
+            <div class="fw-bold">Dashboard</div>
+            <div class="muted" style="font-size:13px;">Welcome, {{ user.username }}</div>
+        </div>
+        <div class="d-flex align-center gap-2">
+            <span class="pill">{{ user.role }}</span>
+            <a herf="{% url 'logout' %}" class="btn btn-outline-secondary btn-sm btn-outline-soft">Logout</a>
+        </div>
+    </div>
+</div>
