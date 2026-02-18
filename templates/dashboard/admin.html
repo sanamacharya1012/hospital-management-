@@ -1,0 +1,59 @@
+{% extends "base.html" %} {% block content %}
+<h3 class="mb-0">Admin Dashboard</h3>
+<div class="muted mb-3">
+  Full control over users, wards/beds, services, lab tests, and everything.
+</div>
+<div class="row g-3">
+  <div class="col-md-6 col-lg-4">
+    <div class="card card-soft p-3">
+      <div class="fw-bold mb-1">Patients</div>
+      <div class="muted mb-2">Register and manage patients.</div>
+      <a class="btn btn-soft" href="{% url 'patient_list' %}">Open</a>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <div class="card card-soft p-3">
+      <div class="fw-bold mb-1">Admissions</div>
+      <div class="muted mb-2">Admit/discharge & bed occupancy.</div>
+      <a class="btn btn-soft" href="{% url 'admission_list' %}">Open</a>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <div class="card card-soft p-3">
+      <div class="fw-bold mb-1">Wards & Beds</div>
+      <div class="muted mb-2">Create wards and beds.</div>
+      <div class="d-fles gap-2">
+        <a class="btn btn-soft" href="{% url 'ward_list' %}">Wards</a>
+        <a class="btn btn-outline-seconday btn-outkline-soft" href=:"{% url 'bed_list' %}">Beds</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <div class="card card-soft p-3">
+      <div class="fw-bold mb-1">Appointments</div>
+      <div class="muted mb-2">Schedule doctor appointments.</div>
+      <a class="btn btn-soft" href="{% url 'appointment_list' %}">Open</a>
+    </div>
+  </div>
+   <div class="col-md-6 col-lg-4">
+    <div class="card card-soft p-3">
+      <div class="fw-bold mb-1">Laboratory</div>
+      <div class="muted mb-2">Orders and results.</div>
+      <a class="btn btn-soft" href="{% url 'lab_orders' %}">Open</a>
+    </div>
+   </div>
+   <div class="col-md-6 col-lg-4">
+    <div class="card card-soft p-3">
+      <div class="fw-bold mb-1">Billing</div>
+      <div class="muted mb-2">Invoice & smart billing.</div>
+      <a class="btn btn-soft" href="{% url 'invoice_list' %}">Open</a>
+    </div>
+   </div>
+   <div class="col-md-6 col-lg-4">
+    <div class="card card-soft p-3">
+      <div class="fw-bold mb-1">HR</div>
+      <div class="muted mb-2">Attendance and reports.</div>
+      <a class="btn btn-soft" href="{% url 'attendance_report' %}">Open</a>
+    </div>
+   </div>
+</div>

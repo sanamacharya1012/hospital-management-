@@ -1,13 +1,15 @@
 <div class="nav-section">Main</div>
 <nav class="nav flex-column pb-2">
-    <a class="nav-link {% if request.path == '/dashboard/' %}active{% endif%}" href="{% url 'dashboard' %}">🏠 Dashboard</a>
+  <a
+    class="nav-link {% if request.path == '/dashboard/' %}active{% endif%}"
+    href="{% url 'dashboard' %}"
+    >🏠 Dashboard</a
+  >
 </nav>
 
 {% if user.is_superuser or role.user == "ADMIN" %}
-   <div class="nav-section">Admin</div>
-   <nav class="nav flex-column pb-2">
-    <a class="nav-link" href="/admin/">🛠 Django Admin</a>
-   </nav>
+<div class="nav-section">Admin</div>
+<nav class="nav flex-column pb-2">
+  <a class="nav-link" href="/admin/">🛠 Django Admin</a>
+</nav>
 {% endif %}
-
-

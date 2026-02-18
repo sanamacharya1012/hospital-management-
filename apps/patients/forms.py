@@ -11,4 +11,4 @@ class PatiensFrom(forms.ModelForm):
 class AdmissionForm(forms.ModelForm):
     class Meta:
         model = Admission
-        fields = ["paitent", "ward", "bed", "assigned_doctor"]
+        fields = ["patient", "ward", "bed", "assigned_doctor"]
