@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-utlpatterns = [
+urlpatterns = [
     path("wards/", views.ward_list, name="ward_list"),
     path("wards/add/", views.ward_create, name="ward_add"),
     path("beds/", views.bed_list, name="bed_list"),

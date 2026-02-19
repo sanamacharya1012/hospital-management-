@@ -11,5 +11,7 @@
 <div class="nav-section">Admin</div>
 <nav class="nav flex-column pb-2">
   <a class="nav-link" href="/admin/">🛠 Django Admin</a>
+  <a class="nav-link" href="{% url 'patient_list' %}">👤 Patients</a>
+  <a class ="nav-link" href="{% url 'admission_list' %}">🏥 Admission</a>
 </nav>
 {% endif %}

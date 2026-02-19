@@ -23,13 +23,13 @@ class Admission(models.Model):
     patient = models.ForeignKey(
         Patient, on_delete=models.CASCADE, related_name="admission"
     )
-    addmited_at = models.DateTimeField(auto_now_add=True)
+    admitted_at = models.DateTimeField(auto_now_add=True)
     discharged_at = models.DateTimeField(null=True, blank=True)
     status = models.CharField(
         max_length=20, choices=Status.choices, default=Status.ADMITTED
     )
     ward = models.ForeignKey(
-        "wards.ward", on_delete=models.SET_NULL, null=True, blank=True
+        "wards.Ward", on_delete=models.SET_NULL, null=True, blank=True
     )
     bed = models.ForeignKey(
         "wards.Bed", on_delete=models.SET_NULL, null=True, blank=True

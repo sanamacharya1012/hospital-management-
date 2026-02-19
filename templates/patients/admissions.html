@@ -1,4 +1,5 @@
-{% extend "base.html" %}
+{% extends "base.html" %}
+
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
     <div>
@@ -22,33 +23,43 @@
                     <th style="width:170px;">Actions</th>
                 </tr>
             </thead>
+
             <tbody>
-                {% for a in admission %}
-                   <tr>
-                      <td class="fw-bold">{{ a.patient.full_name}}</td>
-                      <td>
-                        {% if a.status == "ADMITTED" %}
-                           <span class="badge text-bg-success">Admitted</span>
-                        {% else %}
-                            <span class="badge text-bg-secondary">DIscharged</span>
-                        {% endif %}
-                      </td>
-                      <td>{{ a.ward|default:"-" }}</td>
-                      <td>{{ a.bed|default:"-" }}</td>
-                      <td>{{ a.assigned_doctor|default:"-" }}</td>
-                      <td class="muted">{{ a.admitted_at|date:"Y-m-d H:i" }}</td>
-                      <td class="d-flex gap-2">
-                          <a class="btn btn-sm btn-outline-secondary btn-outline-soft" href="{% url 'emr_patient_overview' a.patient.id %}">EMR</a>
-                          {% if a. status =="ADMITTED" %}
-                             <a class="btn btn-sm btn-danger" href="{% url 'discharge_patient' a.id %}" onclick="return confirm('Discharge this patient?');">Discharge</a>
-                          {% endif %}
-                      </td>
+                {% for a in adDmission %}
+                    <tr>
+                        <td class="fw-bold">{{ a.patient.full_name }}</td>
+
+                        <td>
+                            {% if a.status == "ADMITTED" %}
+                                <span class="badge text-bg-success">Admitted</span>
+                            {% else %}
+                                <span class="badge text-bg-secondary">Discharged</span>
+                            {% endif %}
+                        </td>
+
+                        <td>{{ a.ward|default:"-" }}</td>
+                        <td>{{ a.bed|default:"-" }}</td>
+                        <td>{{ a.assigned_doctor|default:"-" }}</td>
+                        <td class="muted">{{ a.admitted_at|date:"Y-m-d H:i" }}</td>
+
+                        <td class="d-flex gap-2">
+                            <a class="btn btn-sm btn-outline-secondary btn-outline-soft"
+                               href="{% url 'emr_patient_overview' a.patient.id %}">EMR</a>
+
+                            {% if a.status == "ADMITTED" %}
+                                <a class="btn btn-sm btn-danger"
+                                   href="{% url 'discharge_patient' a.id %}"
+                                   onclick="return confirm('Discharge this patient?');">Discharge</a>
+                            {% endif %}
+                        </td>
                     </tr>
                 {% empty %}
-                    <tr><td colsoan="7" class="muted">No admissions found.</td></tr>
+                    <tr>
+                        <td colspan="7" class="muted">No admissions found.</td>
+                    </tr>
                 {% endfor %}
             </tbody>
+        </table>
     </div>
 </div>
-
-            
+{% endblock %}
