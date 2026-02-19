@@ -1,0 +1,54 @@
+{% extend "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h3 class="mb-0">Admissions</h3>
+        <div class="muted">Admit → bed occupied. Discharge → bed free + invoice.</div>
+    </div>
+    <a class="btn btn-soft" href="{% url 'admit_patient' %}">➕ Admit Patient</a>
+</div>
+
+<div class="card card-soft p-3">
+    <div class="table-responsive">
+        <table class="table align-middle mb-0">
+            <thead>
+                <tr>
+                    <th>Patient</th>
+                    <th>Status</th>
+                    <th>Ward</th>
+                    <th>Bed</th>
+                    <th>Doctor</th>
+                    <th>Admitted</th>
+                    <th style="width:170px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in admission %}
+                   <tr>
+                      <td class="fw-bold">{{ a.patient.full_name}}</td>
+                      <td>
+                        {% if a.status == "ADMITTED" %}
+                           <span class="badge text-bg-success">Admitted</span>
+                        {% else %}
+                            <span class="badge text-bg-secondary">DIscharged</span>
+                        {% endif %}
+                      </td>
+                      <td>{{ a.ward|default:"-" }}</td>
+                      <td>{{ a.bed|default:"-" }}</td>
+                      <td>{{ a.assigned_doctor|default:"-" }}</td>
+                      <td class="muted">{{ a.admitted_at|date:"Y-m-d H:i" }}</td>
+                      <td class="d-flex gap-2">
+                          <a class="btn btn-sm btn-outline-secondary btn-outline-soft" href="{% url 'emr_patient_overview' a.patient.id %}">EMR</a>
+                          {% if a. status =="ADMITTED" %}
+                             <a class="btn btn-sm btn-danger" href="{% url 'discharge_patient' a.id %}" onclick="return confirm('Discharge this patient?');">Discharge</a>
+                          {% endif %}
+                      </td>
+                    </tr>
+                {% empty %}
+                    <tr><td colsoan="7" class="muted">No admissions found.</td></tr>
+                {% endfor %}
+            </tbody>
+    </div>
+</div>
+
+            
