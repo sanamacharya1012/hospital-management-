@@ -20,7 +20,7 @@ def patient_list(request):
         User.Role.RECEPTION,
     ]:
         patients = Patient.objects.order_by("-created_at")
-        return render(request, "patient/list.html", {"patients": patients})
+        return render(request, "patients/list.html", {"patients": patients})
     # Doctor: only assigned admitted patients
 
     if request.user.role == User.Role.DOCTOR:
