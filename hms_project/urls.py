@@ -11,5 +11,5 @@ urlpatterns = [
     path("emr/", include("apps.emr.urls")),
     path("lab/", include("apps.lab.urls")),
     path("billing/", include("apps.billing.urls")),
-    # path("hr/", include("aaps.hr.urls")),
+    path("hr/", include("apps.hr.urls")),
 ]

@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     "apps.emr",
     "apps.lab",
     "apps.billing",
-    # "apps.hr",
+    "apps.hr.apps.HrConfig",
 ]
 
 MIDDLEWARE = [

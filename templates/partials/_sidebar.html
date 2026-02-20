@@ -13,5 +13,11 @@
   <a class="nav-link" href="/admin/">🛠 Django Admin</a>
   <a class="nav-link" href="{% url 'patient_list' %}">👤 Patients</a>
   <a class ="nav-link" href="{% url 'admission_list' %}">🏥 Admission</a>
+  <a class = "nav-link" href="{% url 'appointment_list' %}">📅 Appointment</a>
+  <a class ="nav-link" href="{% url 'ward_list' %}"> 🧱 Wards</a>
+  <a class="nav-link" href="{% url 'bed_list' %}">🛏 Bed</a>
+  <a class="nav-link" href="{% url 'invoice_list' %}">💳 Billing</a>
+  <a class="nav-link" href="{% url 'lab_orders' %}">🧪 Laboratory</a>
+  <a class="nav-link" href="{% url 'attendance_report' %}">🧑‍💼 HR</a>
 </nav>
 {% endif %}
